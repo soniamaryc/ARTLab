@@ -1,0 +1,77 @@
+.people {
+  padding: 3rem 10%;
+  background: #fafafa;
+  text-align: center;
+}
+
+.people h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.people .intro {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+.person-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transform: rotate(-1deg); /* polaroid feel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.person-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.person-info {
+  padding: 1rem;
+}
+
+.person-info h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.person-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.person-info .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #d35400;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.person-info .btn:hover {
+  background: #a84300;
+}

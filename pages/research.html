@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research - ART Lab</title>
+  <link rel="stylesheet" href="../css/research.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="../index.html"><img src="../images/bgsu-logo.avif" alt="BGSU ART Lab Logo" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="collaboration.html">Collaboration</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="research">
+    <h1>Research Projects & Demonstrations</h1>
+    <input type="text" placeholder="Search Videos" class="search-bar">
+
+    <!-- Example Project -->
+    <div class="research-item">
+      <div class="video-wrapper">
+        <iframe width="100%" height="315" 
+      src="https://www.youtube.com/embed/wRD5JmhZJwI?si=6kH5xZAmRJMgxwwx" 
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+      </div>
+      <div class="video-info">
+        <h3>Dynamic Pick-and-Place System for a Manipulator on a Quadruped</h3>
+        <p><strong>Author:</strong> Abhishek Kasaragod</p>
+        <p>MS Thesis, UIC August 2024</p>
+        <a href="https://youtu.be/wRD5JmhZJwI" target="_blank">Watch on YouTube</a>
+      </div>
+    </div>
+
+    <div class="research-item">
+      <div class="video-wrapper">
+        <iframe width="100%" height="315" 
+      src="https://www.youtube.com/embed/wRD5JmhZJwI?si=6kH5xZAmRJMgxwwx" 
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+      </div>
+      <div class="video-info">
+        <h3>Dynamic Pick-and-Place System for a Manipulator on a Quadruped</h3>
+        <p><strong>Author:</strong> Abhishek Kasaragod</p>
+        <p>MS Thesis, UIC August 2024</p>
+        <a href="https://youtu.be/wRD5JmhZJwI" target="_blank">Watch on YouTube</a>
+      </div>
+    </div>
+
+    <!-- Add more projects in same format -->
+
+  </main>
+
+  <footer>
+    <p>© 2025 Advanced Robotics and Technology (ART) Lab, BGSU</p>
+  </footer>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.querySelector(".search-bar");
+    const researchItems = document.querySelectorAll(".research-item");
+
+    searchInput.addEventListener("input", function() {
+      const query = searchInput.value.toLowerCase();
+
+      researchItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = "flex"; // show
+        } else {
+          item.style.display = "none"; // hide
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

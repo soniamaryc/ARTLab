@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  background: #fff;
+  border-bottom: 2px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 8%;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #d35400;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #d35400;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, #a8edea, #fed6e3);
+  min-height: 60vh;        /* reduced height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;     /* ensures center alignment */
+  text-align: center;
+  padding: 3rem 8%;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  max-width: 900px;
+}
+
+.hero p {
+  max-width: 750px;        /* keeps it narrow under heading */
+  margin: 0 auto;          /* centers horizontally */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+
+/* Facilities Section */
+.facilities {
+  background: #fff;
+  padding: 5rem 10%;
+}
+
+.facilities h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: #222;
+  position: relative;
+}
+
+.facilities h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #d35400;
+  display: block;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+.facility-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;   /* aligns text to top of image */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.facility-text {
+  flex: 1.2;   /* text takes more space */
+  min-width: 320px;
+  font-size: 1.15rem;  /* increased size */
+  line-height: 1.9;    /* more readable */
+  color: #222;
+}
+
+.facility-img-wrapper {
+  flex: 0.8;   /* image takes less space */
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.facility-img {
+  max-width: 85%;       /* smaller than before */
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facility-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+
+/* Footer */
+/* Make the page use full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should expand and push footer down */
+main {
+  flex: 1;
+}
+
+/* Footer stays at bottom */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;   /* pushes footer down */
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .facility-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .facility-text {
+    text-align: left;
+  }
+}
