@@ -1,0 +1,120 @@
+/* Outreach-specific styles — inherits navbar/footer from style.css */
+
+/* Hero section (same gradient as teaching & entrepreneurship) */
+.outreach-hero {
+  background: linear-gradient(135deg, #004aad, #00b8d4);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.outreach-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.outreach-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* Intro section */
+.outreach-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.outreach-intro h2 {
+  color: #004aad;
+  margin-bottom: 1rem;
+}
+
+.outreach-intro p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Featured highlights */
+.outreach-highlights {
+  background-color: #f8faff;
+  padding: 3rem 1rem;
+}
+
+.outreach-highlights h2 {
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 2rem;
+}
+
+.highlight-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  color: #004aad;
+  margin-top: 1rem;
+}
+
+.card p {
+  padding: 0 1rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Explore More links */
+.outreach-links {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.outreach-links h2 {
+  color: #004aad;
+  margin-bottom: 1.5rem;
+}
+
+.link-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.link-card {
+  background: #004aad;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.link-card:hover {
+  background: #00b8d4;
+}

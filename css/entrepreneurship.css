@@ -1,0 +1,179 @@
+/* Hero Section - Same as Teaching Page Style */
+.entrepreneurship-hero {
+  background: linear-gradient(120deg, #a8edea, #fed6e3);
+  padding: 5rem 8%;
+  text-align: center;
+  color: #222;
+}
+
+.entrepreneurship-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.entrepreneurship-hero p {
+  font-size: 1.1rem;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Innovation Journey */
+.innovation-journey {
+  padding: 4rem 10%;
+  background: #fff;
+  color: #222;
+}
+
+.innovation-journey h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #007b83;
+}
+
+.innovation-journey p {
+  line-height: 1.9;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Featured Venture */
+.featured-venture {
+  background: #fafafa;
+  padding: 4rem 10%;
+}
+
+.featured-venture h2 {
+  text-align: center;
+  color: #007b83;
+  margin-bottom: 3rem;
+}
+
+.venture-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.venture-card img {
+  width: 380px;
+  border-radius: 10px;
+}
+
+.venture-content {
+  max-width: 600px;
+}
+
+.venture-content h3 {
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.venture-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.venture-btn {
+  display: inline-block;
+  background: #007b83;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.venture-btn:hover {
+  background: #005f64;
+}
+
+/* Partner Logos */
+.partners {
+  text-align: center;
+  padding: 4rem 10%;
+  background: #fff;
+}
+
+.partners h2 {
+  color: #007b83;
+  margin-bottom: 2rem;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.partner-logos img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-logos img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* Explore More Links */
+.innovation-links {
+  text-align: center;
+  padding: 4rem 10%;
+  background: #fafafa;
+}
+
+.innovation-links h2 {
+  color: #007b83;
+  margin-bottom: 2rem;
+}
+
+.link-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.link-card {
+  background: #007b83;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.link-card:hover {
+  background: #005f64;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .venture-card {
+    flex-direction: column;
+  }
+
+  .venture-card img {
+    width: 100%;
+  }
+
+  .partner-logos img {
+    width: 120px;
+  }
+}

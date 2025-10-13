@@ -17,13 +17,55 @@
     </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="pages/research.html">Research</a></li>
-      <li><a href="pages/collaboration.html">Collaboration</a></li>
-      <li><a href="pages/people.html">People</a></li>
-      <li><a href="pages/contact.html">Contact</a></li>
+
+      <li class="dropdown">
+        <a href="pages/about.html">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/people.html">People</a></li>
+          <li><a href="pages/lab.html">Lab & Facilities</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="pages/research.html">Research</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/projects.html">Projects & Grants</a></li>
+          <li><a href="pages/publications.html">Publications</a></li>
+          <li><a href="pages/collaborations.html">Collaborations</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="pages/teaching.html">Teaching</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/courses.html">Courses</a></li>
+          <li><a href="pages/capstone.html">Capstone Projects</a></li>
+          <li><a href="pages/resources.html">Resources & Materials</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="pages/entrepreneurship.html">Entrepreneurship & Innovation</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/startups.html">Startups</a></li>
+          <li><a href="pages/industry.html">Industry Collaborations</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="pages/outreach.html">Outreach</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/stem.html">STEM Outreach</a></li>
+          <li><a href="pages/service.html">Service & Mentoring</a></li>
+        </ul>
+      </li>
+
+      <li><a href="pages/blog.html">Blog</a></li>
     </ul>
   </nav>
 </header>
+
 
 
   <!-- Hero Section -->
@@ -40,14 +82,28 @@
   <section class="facilities">
   <h2>Empowering Robotics for a Better Future</h2>
   <div class="facility-container">
-    <div class="facility-text">
-      <p>The ART Lab is equipped with advanced tools and workspaces, including:</p>
-      <ul>
-        <li>Mobile robots and manipulator platforms.</li>
-        <li>Workstations for programming, simulation, and control (ROS, MATLAB, Python).</li>
-        <li>Testing arena for real-time experiments with autonomous systems.</li>
-        <li>Dedicated spaces for soldering, prototyping, and sensor integration.</li>
-      </ul>
+     <div class="facility-text">
+      <h3>Our Research Focus</h3>
+      <p>
+        The Advanced Robotics and Technology (ART) Lab at Bowling Green State University explores the intersection of
+        <strong>robotics design</strong>, <strong>human-in-the-loop systems</strong>, and <strong>extended reality (XR) technologies</strong>.
+        Our work focuses on developing intelligent robotic systems that can collaborate seamlessly with humans across
+        manufacturing, healthcare, and education.
+      </p>
+      <p>
+        We integrate <strong>AR/VR-based control interfaces</strong> and <strong>machine learning-driven perception models</strong>
+        to enhance situational awareness, adaptability, and autonomy in real-world applications. Our lab's interdisciplinary
+        approach bridges mechanical design, embedded control, and cognitive interaction to push the boundaries of how humans
+        and machines work together.
+      </p>
+
+      <h3>Featured Project: XR-Assisted Robotic Teleoperation</h3>
+      <p>
+        This project investigates the use of <strong>augmented reality (AR) interfaces</strong> for intuitive teleoperation of robotic manipulators.
+        By combining spatial visualization, haptic feedback, and computer vision, we aim to enable operators to perform
+        complex manipulation tasks remotely with precision and confidence. The system leverages Unity and ARCore for real-time
+        scene reconstruction and ROS for robot communication.
+      </p>
     </div>
     <div class="facility-img-wrapper">
       <img src="images/robots.avif" alt="Robotics Lab" class="facility-img" />

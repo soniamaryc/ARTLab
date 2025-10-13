@@ -1,0 +1,129 @@
+/* Import base font and layout styles already covered in style.css */
+
+/* Hero Section */
+.teaching-hero {
+  background: linear-gradient(120deg, #a8edea, #fed6e3);
+  padding: 5rem 8%;
+  text-align: center;
+  color: #222;
+}
+
+.teaching-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.teaching-hero p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Main Content */
+.teaching-content {
+  padding: 4rem 10%;
+  background: #fff;
+  color: #222;
+}
+
+.teaching-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #d35400;
+}
+
+.teaching-content p {
+  line-height: 1.9;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Featured Courses */
+.featured-courses .course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.course-card {
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  max-width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.course-card h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Capstone Section */
+.capstone {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.capstone-img {
+  max-width: 80%;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* Resource Links */
+.teaching-links {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.link-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.link-card {
+  display: inline-block;
+  background: #d35400;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.link-card:hover {
+  background: #b84300;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .course-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .capstone-img {
+    max-width: 100%;
+  }
+}

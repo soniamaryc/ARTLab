@@ -75,3 +75,47 @@
 .person-info .btn:hover {
   background: #a84300;
 }
+
+
+
+/* Dropdown Styles */
+.nav-links li {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 999;
+  border-radius: 8px;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 400;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #f7f7f7;
+  color: #d35400;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}

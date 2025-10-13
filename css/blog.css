@@ -1,0 +1,176 @@
+/* Blog-specific styles — matches entrepreneurship color theme */
+:root {
+  --primary-color: #004aad;
+  --accent-color: #00b8d4;
+  --light-bg: #f3f6fc;
+}
+
+/* Hero section */
+.blog-hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.blog-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.blog-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* Search and Filter Section */
+.blog-search {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--light-bg);
+}
+
+.search-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-container input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 1rem;
+}
+
+.search-container button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: var(--accent-color);
+}
+
+/* Filter buttons */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.category-filters .filter {
+  background: #fff;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-filters .filter:hover,
+.category-filters .filter.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Blog Cards Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 1rem 1.2rem 1.5rem;
+  text-align: left;
+}
+
+.blog-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.blog-content p {
+  font-size: 0.95rem;
+}
+
+/* Subscribe Section */
+.subscribe {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.subscribe h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subscribe p {
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subscribe-form input {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 1rem;
+}
+
+.subscribe-form button {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background: #e0f7fa;
+}
