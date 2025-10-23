@@ -66,45 +66,161 @@
 </header>
 
   <main class="research">
-    <h1>Research Projects & Demonstrations</h1>
-    <input type="text" placeholder="Search Videos" class="search-bar">
+    <section class="research-header">
+  <h1>Research Projects & Demonstrations</h1>
+</section>
 
-    <!-- Example Project -->
-    <div class="research-item">
-      <div class="video-wrapper">
-        <iframe width="100%" height="315" 
-      src="https://www.youtube.com/embed/wRD5JmhZJwI?si=6kH5xZAmRJMgxwwx" 
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-      </div>
-      <div class="video-info">
-        <h3>Dynamic Pick-and-Place System for a Manipulator on a Quadruped</h3>
-        <p><strong>Author:</strong> Abhishek Kasaragod</p>
-        <p>MS Thesis, UIC August 2024</p>
-        <a href="https://youtu.be/wRD5JmhZJwI" target="_blank">Watch on YouTube</a>
-      </div>
+
+    <!-- Automatic Image Slider -->
+     <h2 align="center">XR Game-Based Engineering Learning System (Unity3D)</h2>
+<section class="image-slider">
+  <div class="slider-container">
+    <div class="slides">
+      <img src="../images/xr.jpg" alt="XR Experiment 1">
+      <img src="../images/x6.jpg" alt="XR Experiment 2">
+      <img src="../images/x3.jpg" alt="XR Experiment 3">
+      <img src="../images/xr1.jpg" alt="XR Experiment 4">
     </div>
 
-    <div class="research-item">
-      <div class="video-wrapper">
-        <iframe width="100%" height="315" 
-      src="https://www.youtube.com/embed/wRD5JmhZJwI?si=6kH5xZAmRJMgxwwx" 
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-      </div>
-      <div class="video-info">
-        <h3>Dynamic Pick-and-Place System for a Manipulator on a Quadruped</h3>
-        <p><strong>Author:</strong> Abhishek Kasaragod</p>
-        <p>MS Thesis, UIC August 2024</p>
-        <a href="https://youtu.be/wRD5JmhZJwI" target="_blank">Watch on YouTube</a>
-      </div>
+    <!-- Navigation buttons -->
+    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+  </div>
+</section>
+
+
+    <!-- XR Game-Based Learning System -->
+<section class="xr-highlight">
+  
+  <div class="xr-content">
+    
+    <!-- Left: Video -->
+    <div class="xr-video">
+      <video width="100%" height="auto" controls poster="../images/xr.jpg">
+        <source src="../images/myVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
+
+    <!-- Right: Description -->
+    <div class="xr-description">
+      
+      <p>
+        This project introduces an <strong>Extended Reality (XR) learning environment</strong> designed in Unity3D, 
+        enabling students to visualize and interact with engineering concepts in real-world settings through 
+        augmented reality. The system provides immersive, hands-on experiences where users can observe, manipulate, 
+        and analyze physical forces in 3D space.
+      </p>
+      <ul>
+        <li>Developed an interactive XR application using <strong>Unity3D and AR Foundation</strong>.</li>
+        <li>Allows students to place virtual engineering 3D models in real-world environments.</li>
+        <li>Provides <strong>step-by-step guidance</strong> for performing experiments and procedures.</li>
+        <li>Integrates force calculation in 3D space.</li>
+        <li>Real-time object manipulation using <strong> Meta Quest controllers</strong>.</li>
+        <li>Designed to enhance conceptual understanding of statics course.</li>
+        <li>Used for classroom demonstrations and individual student exploration.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
 
     <!-- Add more projects in same format -->
+     <!-- Research Publications -->
+    <!-- Research Publications -->
+<section class="publications">
+  <h2>Research Publications</h2>
+  <p class="pub-intro">
+    Selected peer-reviewed papers from the ART Lab focusing on augmented reality,
+    robotics education, and human-robot interaction.
+  </p>
+
+  <div class="publications-grid">
+    <!-- Publication Card 1 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2019</span>
+        <span class="pub-citations">64 citations</span>
+      </div>
+      <h3 class="pub-title">An augmented reality interface for human-robot interaction in unconstrained environments</h3>
+      <p class="pub-authors">SM Chacko, V Kapila</p>
+      <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
+    </div>
+
+    <!-- Publication Card 2 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2021</span>
+        <span class="pub-citations">54 citations</span>
+      </div>
+      <h3 class="pub-title">Examining the effectiveness of a professional development program: integration of educational robotics into science and mathematics curricula</h3>
+      <p class="pub-authors">HS You, SM Chacko, V Kapila</p>
+      <p class="pub-venue">Journal of Science Education and Technology, 30(4), 567–581</p>
+    </div>
+
+    <!-- Publication Card 3 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2020</span>
+        <span class="pub-citations">35 citations</span>
+      </div>
+      <h3 class="pub-title">An augmented reality framework for robotic tool-path teaching</h3>
+      <p class="pub-authors">SM Chacko, A Granado, V Kapila</p>
+      <p class="pub-venue">Procedia CIRP, 93, 1218–1223</p>
+    </div>
+
+    <!-- Publication Card 4 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2017</span>
+        <span class="pub-citations">26 citations</span>
+      </div>
+      <h3 class="pub-title">Building trust in robots in robotics-focused STEM education under TPACK framework in middle schools</h3>
+      <p class="pub-authors">SMM Rahman, SM Chacko, V Kapila</p>
+      <p class="pub-venue">ASEE Annual Conference & Exposition</p>
+    </div>
+
+    <!-- Publication Card 5 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2019</span>
+        <span class="pub-citations">23 citations</span>
+      </div>
+      <h3 class="pub-title">Augmented reality as a medium for human-robot collaborative tasks</h3>
+      <p class="pub-authors">SM Chacko, V Kapila</p>
+      <p class="pub-venue">IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)</p>
+    </div>
+
+    <!-- Publication Card 6 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2020</span>
+        <span class="pub-citations">11 citations</span>
+      </div>
+      <h3 class="pub-title">An augmented reality spatial referencing system for mobile robots</h3>
+      <p class="pub-authors">SM Chacko, A Granado, A RajKumar, V Kapila</p>
+      <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
+    </div>
+
+    <!-- Publication Card 7 -->
+    <div class="pub-card">
+      <div class="pub-header">
+        <span class="pub-year">2018</span>
+        <span class="pub-citations">–</span>
+      </div>
+      <h3 class="pub-title">Determining prerequisites for middle school students to participate in robotics-based STEM lessons: A computational thinking approach</h3>
+      <p class="pub-authors">SMM Rahman, SM Chacko, SB Rajguru, V Kapila</p>
+      <p class="pub-venue">ASEE Annual Conference & Exposition, Salt Lake City</p>
+    </div>
+  </div>
+</section>
+
 
   </main>
 
@@ -114,6 +230,30 @@
 
 
   <script>
+let slideIndex = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = slides.children.length;
+
+function showSlide(index) {
+  if (index >= totalSlides) slideIndex = 0;
+  else if (index < 0) slideIndex = totalSlides - 1;
+  else slideIndex = index;
+
+  const offset = -slideIndex * 100;
+  slides.style.transform = `translateX(${offset}%)`;
+}
+
+function plusSlides(n) {
+  showSlide(slideIndex + n);
+}
+
+// Auto slide every 4 seconds
+setInterval(() => {
+  showSlide(slideIndex + 1);
+}, 4000);
+
+
+
   document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.querySelector(".search-bar");
     const researchItems = document.querySelectorAll(".research-item");
