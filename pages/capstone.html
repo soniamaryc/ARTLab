@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capstone Projects - ART Research Lab</title>
+  <link rel="stylesheet" href="../css/capstone_projects.css" />
+</head>
+<body>
+ <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/bgsu-logo.avif" alt="BGSU ART Lab Logo" class="logo-img" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="about.html">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="people.html">People</a></li>
+            <li><a href="lab.html">Lab & Facilities</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="research.html">Research</a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html">Projects & Grants</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="collaborations.html">Collaborations</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="teaching.html">Teaching</a>
+          <ul class="dropdown-menu">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="capstone.html">Capstone Projects</a></li>
+            <li><a href="resources.html">Resources & Materials</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="entrepreneurship.html">Entrepreneurship & Innovation</a>
+          <ul class="dropdown-menu">
+            <li><a href="startups.html">Startups</a></li>
+            <li><a href="industry.html">Industry Collaborations</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="outreach.html">Outreach</a>
+          <ul class="dropdown-menu">
+            <li><a href="stem.html">STEM Outreach</a></li>
+            <li><a href="service.html">Service & Mentoring</a></li>
+          </ul>
+        </li>
+
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Capstone Projects</h1>
+    <p>Explore innovative projects from our talented students — showcasing creativity, design, and technology integration.</p>
+  </section>
+
+  <!-- Buttons Section -->
+  <section class="project-buttons">
+    <button id="fallBtn" class="active">Fall 2024</button>
+    <button id="springBtn">Spring 2025</button>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery"></section>
+
+  <footer>
+    <p>© 2025 Advanced Robotics and Technology (ART) Lab, BGSU</p>
+  </footer>
+
+  <script>
+    const fallBtn = document.getElementById('fallBtn');
+    const springBtn = document.getElementById('springBtn');
+    const gallery = document.getElementById('gallery');
+
+    // Function to load gallery dynamically
+    function loadGallery(type) {
+      gallery.innerHTML = '';
+      let files = [];
+
+      if (type === 'fall') {
+        files = [
+          '../images/fall2024/1.jpg',
+          '../images/fall2024/2.jpg',
+          '../images/fall2024/3.jpg',
+          '../images/fall2024/4.jpg',
+          '../images/fall2024/5.jpg',
+          '../images/fall2024/6.jpg'
+        ];
+      } else if (type === 'spring') {
+        files = [
+          '../images/spring2025/1.jpg',
+          '../images/spring2025/2.jpg',
+          '../images/spring2025/3.jpg',
+          '../images/spring2025/4.jpg',
+          '../images/spring2025/5.jpg',
+          '../images/spring2025/6.JPG',
+          '../images/spring2025/7.jpg',
+          '../images/spring2025/8.jpg'
+        ];
+      }
+
+      files.forEach(file => {
+        const div = document.createElement('div');
+        div.className = 'poster-card'; // SAME CLASS for both
+        div.innerHTML = `<img src="${file}" alt="Capstone Poster">`;
+        gallery.appendChild(div);
+      });
+    }
+    // Event Listeners
+    fallBtn.addEventListener('click', () => {
+      fallBtn.classList.add('active');
+      springBtn.classList.remove('active');
+      loadGallery('fall');
+    });
+
+    springBtn.addEventListener('click', () => {
+      springBtn.classList.add('active');
+      fallBtn.classList.remove('active');
+      loadGallery('spring');
+    });
+
+    // Default load
+    loadGallery('fall');
+  </script>
+</body>
+</html>
