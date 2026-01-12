@@ -76,6 +76,7 @@
   <section class="project-buttons">
     <button id="fallBtn" class="active">Fall 2024</button>
     <button id="springBtn">Spring 2025</button>
+    <button id="fall2025Btn">Fall 2025</button>
   </section>
 
   <!-- Gallery Section -->
@@ -94,6 +95,7 @@
   <script>
     const fallBtn = document.getElementById('fallBtn');
     const springBtn = document.getElementById('springBtn');
+    const fall2025Btn = document.getElementById('fall2025Btn');
     const gallery = document.getElementById('gallery');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
@@ -115,9 +117,15 @@
         { name: "Interactive Smart Mirror", authors: "Tyler Kordish, Colin Murphy, Brandon Szpendyk, Jalen Webster", img: "../images/spring2025/3.jpg" },
         { name: "Self-Sustaining Hydroponic System", authors: "Cathern (Katie) Barry, Kevin Jacobs, Adam Siegfried, Devin Spiegelberg, Brandon Strait", img: "../images/spring2025/4.jpg" },
         { name: "Piezoelectric Energy Harvester for Inspection Counterweight Beeper", authors: "Jake Schaefer", img: "../images/spring2025/5.jpg" },
-        { name: "Walk-Ease", authors: "Brianna Briggs, Sydney Daniels, Alex Mischell, Timothy Pozda", img: "../images/spring2025/6.jpg" },
+        { name: "Walk-Ease", authors: "Brianna Briggs, Sydney Daniels, Alex Mischell, Timothy Pozda", img: "../images/spring2025/6.JPG" },
         { name: "Automated Greenhouse", authors: "Jonah Barrios, Eric Wodzisz, Nathan Hurst, Dakota Dukett", img: "../images/spring2025/7.jpg" },
-        { name: "Pinnacle Plastics: Facility Layout Redesign", authors: "Owen Thompson and Will Clouse", img: "../images/spring2025/8.jpg" }
+        { name: "Pinnacle Plastics: Facility Layout Redesign", authors: "Owen Thompson, Will Clouse", img: "../images/spring2025/8.jpg" }
+      ],
+      fall2025: [
+        { name: "Project Edeath", authors: "Alexi Mokbel, Byung Rog Lee, Curtis Royster, Jalen Knall", img: "../images/fall2025/1.png" },
+        { name: "Ambient Environmental Readings Keychain", authors: "Madison Carns, Claire Henman, Lauren Jenkins, Jenna Lucas", img: "../images/fall2025/2.PNG" },
+        { name: "Grinding Fixture", authors: "Dryden B., Ben J., Joe M., Solomon S., Luke L.", img: "../images/fall2025/3.png" },
+        { name: "Armless Crutch", authors: "Johnathon Shoup, Nicole Ruffier, Bridget Feldman, Brayden Piper, Andrew Parker", img: "../images/fall2025/4.png" }
       ]
     };
 
@@ -151,6 +159,13 @@
       fallBtn.classList.remove('active');
       loadGallery('spring');
     });
+
+    fall2025Btn.addEventListener('click', () => {
+    fallBtn.classList.remove('active');
+    springBtn.classList.remove('active');
+    fall2025Btn.classList.add('active');
+    loadGallery('fall2025');
+  });
 
     // Modal Controls
     closeModal.onclick = () => modal.style.display = "none";
