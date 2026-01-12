@@ -100,6 +100,8 @@
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     const closeModal = document.querySelector('.close');
+    const filterButtons = document.querySelectorAll('.project-buttons button');
+
 
     // Project Data
     const projects = {
@@ -173,6 +175,35 @@
 
     // Default Load
     loadGallery('fall');
+
+
+    // select only one button at a time
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove 'active' class from ALL buttons first
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add 'active' class to the clicked button
+        this.classList.add('active');
+        
+        // Get the filter value (e.g., 'fall-2024', 'spring-2025', 'all')
+        const filterValue = this.getAttribute('data-filter');
+        
+        // Get all project cards
+        const projectCards = document.querySelectorAll('.poster-card');
+        
+        // Filter the cards based on selected button
+        projectCards.forEach(card => {
+          const cardSemester = card.getAttribute('data-semester');
+          
+          if (filterValue === 'all' || cardSemester === filterValue) {
+            card.style.display = 'block';  // Show matching cards
+          } else {
+            card.style.display = 'none';   // Hide non-matching cards
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
