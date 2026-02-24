@@ -162,8 +162,8 @@ main {
 
 /* Footer stays at bottom */
 footer {
-  background: #222;
-  color: #fff;
+  background: #ddd;
+  color: #000;
   text-align: center;
   padding: 1rem;
   margin-top: auto;   /* pushes footer down */
@@ -264,3 +264,206 @@ footer {
   }
 }
  
+
+
+/* Figures Section */
+.figures {
+  background: white;
+}
+
+/* Ensure figures section aligns with the main content (matches hero/section margins) */
+.figures {
+  padding: 60px 10%;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Center the grid items so single item appears under the heading */
+.figure-grid {
+  justify-items: center;
+}
+
+.figure-card img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Specific team photo sizing: more specific selector to override width:100% */
+.figure-card {
+  text-align: center; /* center contents like image and text */
+  max-width: 320px;
+}
+
+.figure-card img.team-photo {
+  width: 220px; /* slightly larger, centered */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 8px;
+}
+
+/* Social icon buttons under each team photo */
+.figure-card .social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* Align standalone section titles (like the 'Graduate Students' h2) with the main content padding
+   so they line up with the .hero h1 which sits at 10% from the left. */
+.section-title {
+  padding-left: 10%;
+  margin: 0 0 20px 0;
+  font-size: 1.6rem;
+}
+
+.figure-card .social-icons a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.figure-card .social-icons a svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Center the section heading */
+.figures h2 {
+  text-align: center;
+}
+
+.figure-card p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Research Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+/* Featured */
+.featured ul {
+  padding-left: 18px;
+}
+
+.link-arrow {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Mission & Students */
+.mission, .students {
+  background: #f9f9f9;
+}
+
+/* Contact Strip */
+.contact-strip {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-strip a {
+  color: #ffdd88;
+  text-decoration: none;
+}
+
+
+
+
+/* Figures Section */
+.figures {
+  background: white;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.figure-card img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.figure-card p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Research Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+/* Featured */
+.featured ul {
+  padding-left: 18px;
+}
+
+.link-arrow {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Mission & Students */
+.mission, .students {
+  background: #f9f9f9;
+}
+
+/* Contact Strip */
+.contact-strip {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-strip a {
+  color: #ffdd88;
+  text-decoration: none;
+}
