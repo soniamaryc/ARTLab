@@ -269,43 +269,68 @@ footer {
 /* Figures Section */
 .figures {
   background: white;
-}
-
-/* Ensure figures section aligns with the main content (matches hero/section margins) */
-.figures {
   padding: 60px 10%;
 }
 
 .figure-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Center the grid items so single item appears under the heading */
-.figure-grid {
-  justify-items: center;
+.figure-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.figure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .figure-card img {
   width: 100%;
-  border-radius: 6px;
-  border: 1px solid #ddd;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-/* Specific team photo sizing: more specific selector to override width:100% */
-.figure-card {
-  text-align: center; /* center contents like image and text */
+.figure-card h3 {
+  font-size: 1.3rem;
+  margin: 20px 20px 12px 20px;
+  color: #1a3a52;
+  font-weight: 600;
+}
+
+.figure-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 20px 20px 20px;
+}
+
+/* Team photo specific styling for people page */
+.figure-card.team-card {
+  text-align: center;
   max-width: 320px;
+  box-shadow: none;
+  border: none;
 }
 
 .figure-card img.team-photo {
-  width: 220px; /* slightly larger, centered */
+  width: 220px;
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 10px;
   border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 /* Social icon buttons under each team photo */
@@ -346,12 +371,10 @@ footer {
 /* Center the section heading */
 .figures h2 {
   text-align: center;
-}
-
-.figure-card p {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: #444;
+  font-size: 2.2rem;
+  color: #1a3a52;
+  margin-bottom: 40px;
+  font-weight: 600;
 }
 
 /* Research Cards */
@@ -400,29 +423,6 @@ footer {
 
 
 
-
-/* Figures Section */
-.figures {
-  background: white;
-}
-
-.figure-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-
-.figure-card img {
-  width: 100%;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-.figure-card p {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: #444;
-}
 
 /* Research Cards */
 .card-grid {
