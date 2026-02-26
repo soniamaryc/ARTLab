@@ -367,13 +367,13 @@ footer {
 /* Team photo specific styling for people page */
 .figure-card.team-card {
   text-align: center;
-  max-width: 320px;
+  max-width: 260px;
   box-shadow: none;
   border: none;
 }
 
 .figure-card img.team-photo {
-  width: 220px;
+  width: 200px;
   max-width: 100%;
   height: auto;
   display: block;
