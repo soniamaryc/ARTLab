@@ -86,6 +86,55 @@ header {
   color: #444;
 }
 
+/* Hero Buttons */
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #d35400;
+  color: white;
+  border: 2px solid #d35400;
+}
+
+.btn-primary:hover {
+  background: #a84300;
+  border-color: #a84300;
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid #d35400;
+  color: #d35400;
+}
+
+.btn-secondary:hover {
+  background: #f9f9f9;
+}
+
+/* Active state for hero buttons */
+.hero-buttons a.active {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
 
 /* Facilities Section */
 .facilities {
