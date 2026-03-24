@@ -417,12 +417,13 @@ footer {
   fill: currentColor;
 }
 
-/* Center the section heading */
+/* Align section heading with the card/content baseline */
 .figures h2 {
-  text-align: center;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto 40px;
   font-size: 2.2rem;
   color: #1a3a52;
-  margin-bottom: 40px;
   font-weight: 600;
 }
 
@@ -441,15 +442,55 @@ footer {
 }
 
 /* Featured */
+
+.featured {
+  padding: 48px 10% 56px;
+}
+
+.featured h2 {
+  max-width: 1200px;
+  margin: 0 auto 18px;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: #1a3a52;
+  font-weight: 600;
+}
+
 .featured ul {
-  padding-left: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.featured li {
+  margin-bottom: 8px;
 }
 
 .link-arrow {
-  display: inline-block;
-  margin-top: 10px;
+  display: block;
+  max-width: 1200px;
+  margin: 14px auto 0;
+  font-size: 1.02rem;
   font-weight: bold;
   text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .featured {
+    padding: 36px 8% 44px;
+  }
+
+  .featured h2 {
+    font-size: 1.75rem;
+    margin-bottom: 14px;
+  }
+
+  .featured ul {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
 }
 
 /* Mission & Students */
@@ -485,18 +526,6 @@ footer {
   padding: 20px;
   border-radius: 6px;
   background: #fafafa;
-}
-
-/* Featured */
-.featured ul {
-  padding-left: 18px;
-}
-
-.link-arrow {
-  display: inline-block;
-  margin-top: 10px;
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* Mission & Students */
