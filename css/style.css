@@ -63,7 +63,7 @@ header {
 /* Hero Section */
 .hero {
   background: linear-gradient(120deg, #a8edea, #fed6e3);
-  min-height: 60vh;        /* reduced height */
+  min-height: 40vh;        /* reduced height */
   display: flex;
   flex-direction: column;
   justify-content: center;
