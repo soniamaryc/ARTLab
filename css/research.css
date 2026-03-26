@@ -4,7 +4,7 @@
 }
 
 /* Add padding back to sections that need it */
-.research > section:not(.research-header):not(.image-slider) {
+.research > section:not(.image-slider) {
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -140,7 +140,7 @@ header {
 /* Hero Section */
 .hero {
   background: linear-gradient(120deg, #a8edea, #fed6e3);
-  min-height: 60vh;        /* reduced height */
+  min-height: 40vh;        /* reduced height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,6 +161,38 @@ header {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #444;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  background: white;
+  border: 2px solid #d35400;
+  color: #d35400;
+}
+
+.btn-secondary:hover {
+  background: #f9f9f9;
+}
+
+.hero-buttons a.active {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
 }
 
 
@@ -522,28 +554,3 @@ footer {
 }
 
 
-.research-header {
-  background: linear-gradient(to right, #a8edea, #fed6e3);
-  text-align: center;
-  padding: 100px 0;  /* only vertical padding */
-  border-radius: 0; /* remove rounded corners */
-  width: 100%;      /* full width */
-  margin: 0;        /* remove any default margin */
-}
-
-.research-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #222;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .research-header {
-    padding: 40px 0;  /* adjust vertical padding for smaller screens */
-  }
-
-  .research-header h1 {
-    font-size: 2rem;
-  }
-}
