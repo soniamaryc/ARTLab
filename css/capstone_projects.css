@@ -278,13 +278,13 @@ header {
 /* Hero Section */
 .hero {
   background: linear-gradient(120deg, #a8edea, #fed6e3);
-  min-height: 60vh;        /* reduced height */
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;     /* ensures center alignment */
+  align-items: center;
   text-align: center;
-  padding: 3rem 8%;
+  padding: 2rem 8% 1.25rem;
 }
 
 .hero h1 {
@@ -294,11 +294,35 @@ header {
 }
 
 .hero p {
-  max-width: 750px;        /* keeps it narrow under heading */
-  margin: 0 auto;          /* centers horizontally */
+  max-width: 750px;
+  margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
   color: #444;
+}
+
+.funding-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.funding-tab {
+  background: #fff;
+  border: 1px solid #d35400;
+  color: #d35400;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+.funding-tab.active {
+  background: #d35400;
+  color: #fff;
 }
 
 
