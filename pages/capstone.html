@@ -71,9 +71,9 @@
     <h1>Capstone Projects</h1>
     <p>Explore innovative projects from our talented students — showcasing creativity, design, and technology integration.</p>
     <div class="funding-tabs" aria-label="Capstone funding filters">
-      <button type="button" class="funding-tab active">All</button>
-      <button type="button" class="funding-tab">CURS Funded</button>
-      <button type="button" class="funding-tab">Industry Sponsored</button>
+      <button type="button" class="funding-tab active" data-view="all">All</button>
+      <button type="button" class="funding-tab" data-view="curs">CURS Funded</button>
+      <button type="button" class="funding-tab" data-view="industry">Industry Sponsored</button>
     </div>
   </section>
 
@@ -105,7 +105,10 @@
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     const closeModal = document.querySelector('.close');
-    const filterButtons = document.querySelectorAll('.project-buttons button');
+    const semesterButtons = document.querySelectorAll('.project-buttons button');
+    const fundingTabs = document.querySelectorAll('.funding-tab');
+    let activeSemester = 'fall';
+    let activeFundingView = 'all';
 
 
     // Project Data
@@ -120,7 +123,7 @@
       ],
       spring: [
         { name: "Air Ladder", authors: "Cameron McClellan, Hannah Obert, Aidan Downs, Brendon Kolkemeyer", img: "../images/spring2025/1.jpg" },
-        { name: "Automated Photochemical Reaction System", authors: "Cameron Collins, Brandon Emmerich", img: "../images/spring2025/2.jpg" },
+        { name: "AutoPCR: Automated Photochemical Reaction System", authors: "Cameron Collins, Brandon Emmerich", img: "../images/spring2025/2.jpg" },
         { name: "Interactive Smart Mirror", authors: "Tyler Kordish, Colin Murphy, Brandon Szpendyk, Jalen Webster", img: "../images/spring2025/3.jpg" },
         { name: "Self-Sustaining Hydroponic System", authors: "Cathern (Katie) Barry, Kevin Jacobs, Adam Siegfried, Devin Spiegelberg, Brandon Strait", img: "../images/spring2025/4.jpg" },
         { name: "Piezoelectric Energy Harvester for Inspection Counterweight Beeper", authors: "Jake Schaefer", img: "../images/spring2025/5.jpg" },
@@ -136,79 +139,256 @@
       ]
     };
 
-    // Load Gallery
-    function loadGallery(type) {
+    // TODO: Fill these with the exact CURS project names once you share them.
+    const cursProjectNamesBySemester = {
+      fall: [
+        "Bar Tending Robot",
+        "Flow/Overflow Control System",
+        "3D Canine Prosthetic Leg",
+        "Airless Spray Gun Adapter for Robotic Manipulator"
+      ],
+      spring: [
+        "AutoPCR: Automated Photochemical Reaction System",
+        "Interactive Smart Mirror",
+        "Self-Sustaining Hydroponic System",
+        "Walk-Ease"
+      ],
+      fall2025: [
+        "Project Edeath",
+        "Ambient Environmental Readings Keychain",
+        "Armless Crutch"
+      ]
+    };
+
+    const industryProjectsBySemester = {
+      fall: [
+        {
+          group: "Humanetics",
+          projects: [
+            {
+              name: "SID-IIs Pelvis Plug Machining Automation",
+              authors: "Andrew Steinhour, Mikal Wlodarsky",
+              img: "../images/fall2024/4.jpg"
+            }
+          ]
+        }
+      ],
+      spring: [
+        {
+          group: "Wurtec Inc.",
+          projects: [
+            {
+              name: "Piezoelectric Energy Harvester for Inspection Counterweight Beeper",
+              authors: "Jake Schaefer",
+              img: "../images/spring2025/5.jpg"
+            }
+          ]
+        },
+        {
+          group: "Pinnacle Plastic Products",
+          projects: [
+            {
+              name: "Pinnacle Plastics: Facility Layout Redesign",
+              authors: "Owen Thompson, Will Clouse",
+              img: "../images/spring2025/8.jpg"
+            }
+          ]
+        }
+      ],
+      fall2025: [
+        {
+          group: "American Midwest Polishing",
+          projects: [
+            {
+              name: "Grinding Fixture",
+              authors: "Dryden B., Ben J., Joe M., Solomon S., Luke L.",
+              img: "../images/fall2025/3.png"
+            }
+          ]
+        }
+      ]
+    };
+
+    function getSemesterProjects(semester) {
+      return projects[semester] || [];
+    }
+
+    function getCursProjectsForSemester(semester) {
+      const semesterProjects = getSemesterProjects(semester);
+      const cursNames = cursProjectNamesBySemester[semester] || [];
+      return semesterProjects.filter(project => cursNames.includes(project.name));
+    }
+
+    function renderProjectNameList(projectList, emptyMessage) {
       gallery.innerHTML = '';
-      projects[type].forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'poster-card';
-        card.innerHTML = `
-          <h3>${p.name}</h3>
-          <p>${p.authors}</p>
-        `;
-        card.addEventListener('click', () => {
-          modal.style.display = "block";
-          modalImg.src = p.img;
+
+      const listWrapper = document.createElement('div');
+      listWrapper.className = 'project-name-list-wrapper';
+
+      const title = document.createElement('h2');
+      title.className = 'project-name-list-title';
+      title.textContent = emptyMessage ? emptyMessage.title : 'Projects';
+
+      if (!projectList.length && emptyMessage) {
+        const message = document.createElement('p');
+        message.className = 'project-empty-message';
+        message.textContent = emptyMessage.body;
+        listWrapper.appendChild(title);
+        listWrapper.appendChild(message);
+        gallery.appendChild(listWrapper);
+        return;
+      }
+
+      const list = document.createElement('ul');
+      list.className = 'project-name-list';
+
+      projectList.forEach(project => {
+        const item = document.createElement('li');
+        item.className = 'project-name-item';
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'project-name-button';
+        button.textContent = project.name;
+        button.addEventListener('click', () => {
+          modal.style.display = 'block';
+          modalImg.src = project.img;
         });
-        gallery.appendChild(card);
+
+        item.appendChild(button);
+        list.appendChild(item);
       });
+
+      listWrapper.appendChild(title);
+      listWrapper.appendChild(list);
+      gallery.appendChild(listWrapper);
+    }
+
+    function renderIndustryPlaceholder() {
+      const industryGroups = industryProjectsBySemester[activeSemester] || [];
+
+      if (!industryGroups.length) {
+        gallery.innerHTML = `
+          <div class="empty-state">
+            <h3>Industry Sponsored Projects</h3>
+            <p>No industry projects have been added for this semester yet.</p>
+          </div>
+        `;
+        return;
+      }
+
+      gallery.innerHTML = '';
+
+      const listWrapper = document.createElement('div');
+      listWrapper.className = 'project-name-list-wrapper';
+
+      const title = document.createElement('h2');
+      title.className = 'project-name-list-title';
+      title.textContent = 'Industry Sponsored Projects';
+      listWrapper.appendChild(title);
+
+      industryGroups.forEach(group => {
+        const groupSection = document.createElement('div');
+        groupSection.className = 'industry-group';
+
+        const groupTitle = document.createElement('h3');
+        groupTitle.className = 'industry-group-title';
+        groupTitle.textContent = group.group;
+        groupSection.appendChild(groupTitle);
+
+        const list = document.createElement('ul');
+        list.className = 'project-name-list';
+
+        group.projects.forEach(project => {
+          const item = document.createElement('li');
+          item.className = 'project-name-item';
+
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'project-name-button';
+          button.textContent = project.name;
+          button.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalImg.src = project.img;
+          });
+
+          item.appendChild(button);
+          list.appendChild(item);
+        });
+
+        groupSection.appendChild(list);
+        listWrapper.appendChild(groupSection);
+      });
+
+      gallery.appendChild(listWrapper);
+    }
+
+    function setActiveSemesterButton(activeButton) {
+      semesterButtons.forEach(btn => btn.classList.remove('active'));
+      activeButton.classList.add('active');
+    }
+
+    function setActiveFundingTab(activeTab) {
+      fundingTabs.forEach(tab => tab.classList.remove('active'));
+      activeTab.classList.add('active');
+    }
+
+    function renderFundingView() {
+      const semesterProjects = getSemesterProjects(activeSemester);
+
+      if (activeFundingView === 'all') {
+        renderProjectNameList(semesterProjects, {
+          title: 'All Projects',
+          body: 'No projects found for the selected semester.'
+        });
+        return;
+      }
+
+      if (activeFundingView === 'curs') {
+        const cursProjects = getCursProjectsForSemester(activeSemester);
+        renderProjectNameList(cursProjects, {
+          title: 'CURS Funded Projects',
+          body: 'CURS project names for this semester are not filled in yet.'
+        });
+        return;
+      }
+
+      renderIndustryPlaceholder();
     }
 
     // Button Events
     fallBtn.addEventListener('click', () => {
-      fallBtn.classList.add('active');
-      springBtn.classList.remove('active');
-      loadGallery('fall');
+      activeSemester = 'fall';
+      setActiveSemesterButton(fallBtn);
+      renderFundingView();
     });
 
     springBtn.addEventListener('click', () => {
-      springBtn.classList.add('active');
-      fallBtn.classList.remove('active');
-      loadGallery('spring');
+      activeSemester = 'spring';
+      setActiveSemesterButton(springBtn);
+      renderFundingView();
     });
 
     fall2025Btn.addEventListener('click', () => {
-    fallBtn.classList.remove('active');
-    springBtn.classList.remove('active');
-    fall2025Btn.classList.add('active');
-    loadGallery('fall2025');
-  });
+      activeSemester = 'fall2025';
+      setActiveSemesterButton(fall2025Btn);
+      renderFundingView();
+    });
+
+    fundingTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        activeFundingView = tab.dataset.view;
+        setActiveFundingTab(tab);
+        renderFundingView();
+      });
+    });
 
     // Modal Controls
     closeModal.onclick = () => modal.style.display = "none";
     modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
     // Default Load
-    loadGallery('fall');
-
-
-    // select only one button at a time
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // Remove 'active' class from ALL buttons first
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add 'active' class to the clicked button
-        this.classList.add('active');
-        
-        // Get the filter value (e.g., 'fall-2024', 'spring-2025', 'all')
-        const filterValue = this.getAttribute('data-filter');
-        
-        // Get all project cards
-        const projectCards = document.querySelectorAll('.poster-card');
-        
-        // Filter the cards based on selected button
-        projectCards.forEach(card => {
-          const cardSemester = card.getAttribute('data-semester');
-          
-          if (filterValue === 'all' || cardSemester === filterValue) {
-            card.style.display = 'block';  // Show matching cards
-          } else {
-            card.style.display = 'none';   // Hide non-matching cards
-          }
-        });
-      });
-    });
+    renderFundingView();
   </script>
 </body>
 </html>
