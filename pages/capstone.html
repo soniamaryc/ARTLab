@@ -102,6 +102,7 @@
     const springBtn = document.getElementById('springBtn');
     const fall2025Btn = document.getElementById('fall2025Btn');
     const gallery = document.getElementById('gallery');
+    const projectButtonsSection = document.querySelector('.project-buttons');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     const closeModal = document.querySelector('.close');
@@ -219,6 +220,14 @@
       return semesterProjects.filter(project => cursNames.includes(project.name));
     }
 
+    function getAllCursProjects() {
+      return [
+        ...getCursProjectsForSemester('fall'),
+        ...getCursProjectsForSemester('spring'),
+        ...getCursProjectsForSemester('fall2025')
+      ];
+    }
+
     function renderProjectNameList(projectList, emptyMessage) {
       gallery.innerHTML = '';
 
@@ -264,14 +273,27 @@
       gallery.appendChild(listWrapper);
     }
 
-    function renderIndustryPlaceholder() {
-      const industryGroups = industryProjectsBySemester[activeSemester] || [];
+    function renderIndustryAllSemesters() {
+      const semesterLabels = {
+        fall: 'Fall 2024',
+        spring: 'Spring 2025',
+        fall2025: 'Fall 2025'
+      };
 
-      if (!industryGroups.length) {
+      const semesterOrder = ['fall', 'spring', 'fall2025'];
+      const industryBySemester = semesterOrder
+        .map(semester => ({
+          semester,
+          label: semesterLabels[semester],
+          groups: industryProjectsBySemester[semester] || []
+        }))
+        .filter(section => section.groups.length > 0);
+
+      if (!industryBySemester.length) {
         gallery.innerHTML = `
           <div class="empty-state">
             <h3>Industry Sponsored Projects</h3>
-            <p>No industry projects have been added for this semester yet.</p>
+            <p>No industry projects have been added yet.</p>
           </div>
         `;
         return;
@@ -287,37 +309,44 @@
       title.textContent = 'Industry Sponsored Projects';
       listWrapper.appendChild(title);
 
-      industryGroups.forEach(group => {
-        const groupSection = document.createElement('div');
-        groupSection.className = 'industry-group';
+      industryBySemester.forEach(section => {
+        const semesterHeading = document.createElement('h3');
+        semesterHeading.className = 'industry-semester-title';
+        semesterHeading.textContent = section.label;
+        listWrapper.appendChild(semesterHeading);
 
-        const groupTitle = document.createElement('h3');
-        groupTitle.className = 'industry-group-title';
-        groupTitle.textContent = group.group;
-        groupSection.appendChild(groupTitle);
+        section.groups.forEach(group => {
+          const groupSection = document.createElement('div');
+          groupSection.className = 'industry-group';
 
-        const list = document.createElement('ul');
-        list.className = 'project-name-list';
+          const groupTitle = document.createElement('h4');
+          groupTitle.className = 'industry-group-title';
+          groupTitle.textContent = group.group;
+          groupSection.appendChild(groupTitle);
 
-        group.projects.forEach(project => {
-          const item = document.createElement('li');
-          item.className = 'project-name-item';
+          const list = document.createElement('ul');
+          list.className = 'project-name-list';
 
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'project-name-button';
-          button.textContent = project.name;
-          button.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalImg.src = project.img;
+          group.projects.forEach(project => {
+            const item = document.createElement('li');
+            item.className = 'project-name-item';
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'project-name-button';
+            button.textContent = project.name;
+            button.addEventListener('click', () => {
+              modal.style.display = 'block';
+              modalImg.src = project.img;
+            });
+
+            item.appendChild(button);
+            list.appendChild(item);
           });
 
-          item.appendChild(button);
-          list.appendChild(item);
+          groupSection.appendChild(list);
+          listWrapper.appendChild(groupSection);
         });
-
-        groupSection.appendChild(list);
-        listWrapper.appendChild(groupSection);
       });
 
       gallery.appendChild(listWrapper);
@@ -334,9 +363,9 @@
     }
 
     function renderFundingView() {
-      const semesterProjects = getSemesterProjects(activeSemester);
-
       if (activeFundingView === 'all') {
+        projectButtonsSection.style.display = 'block';
+        const semesterProjects = getSemesterProjects(activeSemester);
         renderProjectNameList(semesterProjects, {
           title: 'All Projects',
           body: 'No projects found for the selected semester.'
@@ -345,15 +374,17 @@
       }
 
       if (activeFundingView === 'curs') {
-        const cursProjects = getCursProjectsForSemester(activeSemester);
-        renderProjectNameList(cursProjects, {
+        projectButtonsSection.style.display = 'none';
+        const allCursProjects = getAllCursProjects();
+        renderProjectNameList(allCursProjects, {
           title: 'CURS Funded Projects',
-          body: 'CURS project names for this semester are not filled in yet.'
+          body: 'No CURS projects have been added yet.'
         });
         return;
       }
 
-      renderIndustryPlaceholder();
+      projectButtonsSection.style.display = 'none';
+      renderIndustryAllSemesters();
     }
 
     // Button Events
