@@ -161,6 +161,15 @@ header {
   font-weight: 700;
 }
 
+.industry-company-link {
+  color: #0b63ce;
+  text-decoration: none;
+}
+
+.industry-company-link:hover {
+  text-decoration: underline;
+}
+
 .project-name-button {
   width: 100%;
   text-align: left;
@@ -172,11 +181,48 @@ header {
   font-size: 1rem;
   cursor: pointer;
   transition: border-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
 }
 
 .project-name-button:hover {
   border-color: #d35400;
   transform: translateY(-1px);
+}
+
+.project-name-text {
+  flex: 1;
+}
+
+.project-meta-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.project-tag-semester {
+  color: #666;
+  background: #f3f3f3;
+  border-color: #e8e8e8;
+}
+
+.project-tag-funding {
+  color: #d35400;
+  background: #fff6ef;
+  border-color: #ffd7be;
 }
 
 .project-empty-message {

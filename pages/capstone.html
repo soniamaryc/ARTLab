@@ -79,7 +79,7 @@
 
   <!-- Buttons Section -->
   <section class="project-buttons">
-    <button id="fallBtn" class="active">Fall 2024</button>
+    <button id="fallBtn">Fall 2024</button>
     <button id="springBtn">Spring 2025</button>
     <button id="fall2025Btn">Fall 2025</button>
   </section>
@@ -108,7 +108,7 @@
     const closeModal = document.querySelector('.close');
     const semesterButtons = document.querySelectorAll('.project-buttons button');
     const fundingTabs = document.querySelectorAll('.funding-tab');
-    let activeSemester = 'fall';
+    let activeSemester = null;
     let activeFundingView = 'all';
 
 
@@ -164,7 +164,8 @@
     const industryProjectsBySemester = {
       fall: [
         {
-          group: "Humanetics",
+          group: "Humanetics ATD Manufacturing, Huron, OH",
+          website: "https://www.humaneticsgroup.com/",
           projects: [
             {
               name: "SID-IIs Pelvis Plug Machining Automation",
@@ -176,7 +177,8 @@
       ],
       spring: [
         {
-          group: "Wurtec Inc.",
+          group: "Wurtech Inc., Toledo, OH",
+          website: "https://wurtec.com/",
           projects: [
             {
               name: "Piezoelectric Energy Harvester for Inspection Counterweight Beeper",
@@ -186,7 +188,8 @@
           ]
         },
         {
-          group: "Pinnacle Plastic Products",
+          group: "Pinnacle Plastic Products, Bowling Green, OH",
+          website: "https://www.pinnacleplasticproducts.com/",
           projects: [
             {
               name: "Pinnacle Plastics: Facility Layout Redesign",
@@ -198,7 +201,8 @@
       ],
       fall2025: [
         {
-          group: "American Midwest Polishing",
+          group: "American Midwest Polishing, Jackson Center, OH",
+          website: "https://www.americanmidwestpolishing.com/",
           projects: [
             {
               name: "Grinding Fixture",
@@ -212,6 +216,58 @@
 
     function getSemesterProjects(semester) {
       return projects[semester] || [];
+    }
+
+    function getAllProjects() {
+      return [
+        ...getSemesterProjects('fall'),
+        ...getSemesterProjects('spring'),
+        ...getSemesterProjects('fall2025')
+      ];
+    }
+
+    const semesterLabelByKey = {
+      fall: 'Fall 2024',
+      spring: 'Spring 2025',
+      fall2025: 'Fall 2025'
+    };
+
+    const fundingBySemesterAndProject = {
+      fall: {
+        'Bar Tending Robot': 'CURS',
+        'Flow/Overflow Control System': 'CURS',
+        '3D Canine Prosthetic Leg': 'CURS',
+        'Airless Spray Gun Adapter for Robotic Manipulator': 'CURS',
+        'SID-IIs Pelvis Plug Machining Automation': 'Industry',
+        'Auto GreenPath': 'Independent/Internal'
+      },
+      spring: {
+        'AutoPCR: Automated Photochemical Reaction System': 'CURS',
+        'Interactive Smart Mirror': 'CURS',
+        'Self-Sustaining Hydroponic System': 'CURS',
+        'Walk-Ease': 'CURS',
+        'Air Ladder': 'Independent/Internal',
+        'Piezoelectric Energy Harvester for Inspection Counterweight Beeper': 'Industry',
+        'Pinnacle Plastics: Facility Layout Redesign': 'Industry'
+      },
+      fall2025: {
+        'Project Edeath': 'CURS',
+        'Ambient Environmental Readings Keychain': 'CURS',
+        'Armless Crutch': 'CURS',
+        'Grinding Fixture': 'Industry'
+      }
+    };
+
+    function getAllProjectsWithMeta() {
+      const semesterOrder = ['fall', 'spring', 'fall2025'];
+      return semesterOrder.flatMap(semesterKey => {
+        const semesterProjects = getSemesterProjects(semesterKey);
+        return semesterProjects.map(project => ({
+          ...project,
+          semesterLabel: semesterLabelByKey[semesterKey],
+          funding: (fundingBySemesterAndProject[semesterKey] || {})[project.name] || 'N/A'
+        }));
+      });
     }
 
     function getCursProjectsForSemester(semester) {
@@ -258,7 +314,33 @@
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'project-name-button';
-        button.textContent = project.name;
+
+        const nameText = document.createElement('span');
+        nameText.className = 'project-name-text';
+        nameText.textContent = project.name;
+        button.appendChild(nameText);
+
+        if (project.semesterLabel || project.funding) {
+          const metaTags = document.createElement('span');
+          metaTags.className = 'project-meta-tags';
+
+          if (project.semesterLabel) {
+            const semesterTag = document.createElement('span');
+            semesterTag.className = 'project-tag project-tag-semester';
+            semesterTag.textContent = project.semesterLabel;
+            metaTags.appendChild(semesterTag);
+          }
+
+          if (project.funding && project.funding !== 'N/A') {
+            const fundingTag = document.createElement('span');
+            fundingTag.className = 'project-tag project-tag-funding';
+            fundingTag.textContent = project.funding;
+            metaTags.appendChild(fundingTag);
+          }
+
+          button.appendChild(metaTags);
+        }
+
         button.addEventListener('click', () => {
           modal.style.display = 'block';
           modalImg.src = project.img;
@@ -274,22 +356,13 @@
     }
 
     function renderIndustryAllSemesters() {
-      const semesterLabels = {
-        fall: 'Fall 2024',
-        spring: 'Spring 2025',
-        fall2025: 'Fall 2025'
-      };
+      const industryGroups = [
+        ...(industryProjectsBySemester.fall || []),
+        ...(industryProjectsBySemester.spring || []),
+        ...(industryProjectsBySemester.fall2025 || [])
+      ];
 
-      const semesterOrder = ['fall', 'spring', 'fall2025'];
-      const industryBySemester = semesterOrder
-        .map(semester => ({
-          semester,
-          label: semesterLabels[semester],
-          groups: industryProjectsBySemester[semester] || []
-        }))
-        .filter(section => section.groups.length > 0);
-
-      if (!industryBySemester.length) {
+      if (!industryGroups.length) {
         gallery.innerHTML = `
           <div class="empty-state">
             <h3>Industry Sponsored Projects</h3>
@@ -309,52 +382,57 @@
       title.textContent = 'Industry Sponsored Projects';
       listWrapper.appendChild(title);
 
-      industryBySemester.forEach(section => {
-        const semesterHeading = document.createElement('h3');
-        semesterHeading.className = 'industry-semester-title';
-        semesterHeading.textContent = section.label;
-        listWrapper.appendChild(semesterHeading);
+      industryGroups.forEach(group => {
+        const groupSection = document.createElement('div');
+        groupSection.className = 'industry-group';
 
-        section.groups.forEach(group => {
-          const groupSection = document.createElement('div');
-          groupSection.className = 'industry-group';
-
-          const groupTitle = document.createElement('h4');
-          groupTitle.className = 'industry-group-title';
+        const groupTitle = document.createElement('h4');
+        groupTitle.className = 'industry-group-title';
+        if (group.website) {
+          const companyLink = document.createElement('a');
+          companyLink.className = 'industry-company-link';
+          companyLink.href = group.website;
+          companyLink.target = '_blank';
+          companyLink.rel = 'noopener noreferrer';
+          companyLink.textContent = group.group;
+          groupTitle.appendChild(companyLink);
+        } else {
           groupTitle.textContent = group.group;
-          groupSection.appendChild(groupTitle);
+        }
+        groupSection.appendChild(groupTitle);
 
-          const list = document.createElement('ul');
-          list.className = 'project-name-list';
+        const list = document.createElement('ul');
+        list.className = 'project-name-list';
 
-          group.projects.forEach(project => {
-            const item = document.createElement('li');
-            item.className = 'project-name-item';
+        group.projects.forEach(project => {
+          const item = document.createElement('li');
+          item.className = 'project-name-item';
 
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'project-name-button';
-            button.textContent = project.name;
-            button.addEventListener('click', () => {
-              modal.style.display = 'block';
-              modalImg.src = project.img;
-            });
-
-            item.appendChild(button);
-            list.appendChild(item);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'project-name-button';
+          button.textContent = project.name;
+          button.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalImg.src = project.img;
           });
 
-          groupSection.appendChild(list);
-          listWrapper.appendChild(groupSection);
+          item.appendChild(button);
+          list.appendChild(item);
         });
+
+        groupSection.appendChild(list);
+        listWrapper.appendChild(groupSection);
       });
 
       gallery.appendChild(listWrapper);
     }
 
-    function setActiveSemesterButton(activeButton) {
+    function setActiveSemesterButton(activeButton = null) {
       semesterButtons.forEach(btn => btn.classList.remove('active'));
-      activeButton.classList.add('active');
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
     }
 
     function setActiveFundingTab(activeTab) {
@@ -364,11 +442,11 @@
 
     function renderFundingView() {
       if (activeFundingView === 'all') {
-        projectButtonsSection.style.display = 'block';
-        const semesterProjects = getSemesterProjects(activeSemester);
-        renderProjectNameList(semesterProjects, {
+        projectButtonsSection.style.display = 'none';
+        const allProjects = getAllProjectsWithMeta();
+        renderProjectNameList(allProjects, {
           title: 'All Projects',
-          body: 'No projects found for the selected semester.'
+          body: 'No projects found.'
         });
         return;
       }
@@ -409,6 +487,10 @@
     fundingTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         activeFundingView = tab.dataset.view;
+        if (activeFundingView === 'all') {
+          activeSemester = null;
+          setActiveSemesterButton();
+        }
         setActiveFundingTab(tab);
         renderFundingView();
       });
