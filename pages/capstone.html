@@ -82,6 +82,7 @@
     <button id="fallBtn">Fall 2024</button>
     <button id="springBtn">Spring 2025</button>
     <button id="fall2025Btn">Fall 2025</button>
+    <button id="spring2026Btn">Spring 2026</button>
   </section>
 
   <!-- Gallery Section -->
@@ -101,6 +102,7 @@
     const fallBtn = document.getElementById('fallBtn');
     const springBtn = document.getElementById('springBtn');
     const fall2025Btn = document.getElementById('fall2025Btn');
+    const spring2026Btn = document.getElementById('spring2026Btn');
     const gallery = document.getElementById('gallery');
     const projectButtonsSection = document.querySelector('.project-buttons');
     const modal = document.getElementById('imageModal');
@@ -131,12 +133,21 @@
         { name: "Walk-Ease", authors: "Brianna Briggs, Sydney Daniels, Alex Mischell, Timothy Pozda", img: "../images/spring2025/6.JPG" },
         { name: "Automated Greenhouse", authors: "Jonah Barrios, Eric Wodzisz, Nathan Hurst, Dakota Dukett", img: "../images/spring2025/7.jpg" },
         { name: "Pinnacle Plastics: Facility Layout Redesign", authors: "Owen Thompson, Will Clouse", img: "../images/spring2025/8.jpg" }
+        
       ],
       fall2025: [
         { name: "Project Edeath", authors: "Alexi Mokbel, Byung Rog Lee, Curtis Royster, Jalen Knall", img: "../images/fall2025/1.png" },
         { name: "Ambient Environmental Readings Keychain", authors: "Madison Carns, Claire Henman, Lauren Jenkins, Jenna Lucas", img: "../images/fall2025/2.PNG" },
         { name: "Grinding Fixture", authors: "Dryden B., Ben J., Joe M., Solomon S., Luke L.", img: "../images/fall2025/3.png" },
         { name: "Armless Crutch", authors: "Johnathon Shoup, Nicole Ruffier, Bridget Feldman, Brayden Piper, Andrew Parker", img: "../images/fall2025/4.png" }
+      ],
+      spring2026: [
+        { name: "Automated Production Monitoring and Data Analysis System", authors: "Ben Moorman, Dr. Sonia Chacko, Bill Gast", img: "../images/capstone_projects/spring2026/1.jpg" },
+        { name: "Mechanical Rolling of Stainless-Steel Filter", authors: "Trevor Gillum, Reid Melampy, Nolan Miller, Cam Smith, Keaton Smith", img: "../images/capstone_projects/spring2026/2.jpg" },
+        { name: "Factory Deployment and Optimization Utilizing Training Factory Industry Robotics", authors: "Craft Cowan, Joshua Hapner, Matthew Keckler, Judah Musacchio, Tyler Volk, Luke Woolard", img: "../images/capstone_projects/spring2026/3.jpg" },
+        { name: "Jominy Quench Test Improved Re-Design", authors: "Adrien Tolento, Pierson Ash, Zayne Lavy", img: "../images/capstone_projects/spring2026/4.jpg" },
+        { name: "Filter Packaging Improvements", authors: "Nathan McCoy, Gabriel Miller, Long Nguyen, Paul Roberts, Timothy Zech", img: "../images/capstone_projects/spring2026/5.jpg" },
+        { name: "O.O.P.S (Operation, Overview, Protection, Security)", authors: "Luke Goodnough, Justin Liddy, Shane Long, Jon Outrich, Jackson Snyder, Evan Toronski", img: "../images/capstone_projects/spring2026/6.jpg" }
       ]
     };
 
@@ -158,6 +169,9 @@
         "Project Edeath",
         "Ambient Environmental Readings Keychain",
         "Armless Crutch"
+      ],
+      spring2026: [
+        "Automated Production Monitoring and Data Analysis System"
       ]
     };
 
@@ -197,7 +211,7 @@
               img: "../images/spring2025/8.jpg"
             }
           ]
-        }
+        }              
       ],
       fall2025: [
         {
@@ -211,7 +225,35 @@
             }
           ]
         }
-      ]
+      ],
+      spring2026: [
+        {
+          group: "The Beckman and Gast Co., 282 W. Kremer Hoying Rd., St. Henry, OH 45883",
+          website: "https://beckmangast.com/",
+          projects: [
+            {
+              name: "Automated Production Monitoring and Data Analysis System",
+              authors: "Ben Moorman, Dr. Sonia Chacko, Bill Gast",
+              img: "../images/capstone_projects/spring2026/1.jpg"}
+          ]
+        },
+        {
+          group: "GVS Filtration, Findlay, OH",
+          website: "https://www.gvs.com/",
+          projects: [
+            {
+              name: "Mechanical Rolling of Stainless-Steel Filter",
+              authors: "Trevor Gillum, Reid Melampy, Nolan Miller, Cam Smith, Keaton Smith",
+              img: "../images/capstone_projects/spring2026/2.jpg"
+            },
+            {
+              name: "Filter Packaging Improvements",
+              authors: "Nathan McCoy, Gabriel Miller, Long Nguyen, Paul Roberts, Timothy Zech",
+              img: "../images/capstone_projects/spring2026/5.jpg"
+            }
+          ]
+        }
+      ] 
     };
 
     function getSemesterProjects(semester) {
@@ -222,14 +264,16 @@
       return [
         ...getSemesterProjects('fall'),
         ...getSemesterProjects('spring'),
-        ...getSemesterProjects('fall2025')
+        ...getSemesterProjects('fall2025'),
+        ...getSemesterProjects('spring2026')
       ];
     }
 
     const semesterLabelByKey = {
       fall: 'Fall 2024',
       spring: 'Spring 2025',
-      fall2025: 'Fall 2025'
+      fall2025: 'Fall 2025',
+      spring2026: 'Spring 2026'
     };
 
     const fundingBySemesterAndProject = {
@@ -250,17 +294,26 @@
         'Air Ladder': 'Independent/Internal',
         'Piezoelectric Energy Harvester for Inspection Counterweight Beeper': 'Industry',
         'Pinnacle Plastics: Facility Layout Redesign': 'Industry'
+      
       },
       fall2025: {
         'Project Edeath': 'CURS',
         'Ambient Environmental Readings Keychain': 'CURS',
         'Armless Crutch': 'CURS',
         'Grinding Fixture': 'Industry'
+      },
+      spring2026: {
+        'Automated Production Monitoring and Data Analysis System': 'Industry',
+        'Mechanical Rolling of Stainless-Steel Filter': 'Industry',
+        'Factory Deployment and Optimization Utilizing Training Factory Industry Robotics': 'Independent/Internal',
+        'Jominy Quench Test Improved Re-Design': 'Independent/Internal',
+        'Filter Packaging Improvements': 'Industry',
+        'O.O.P.S (Operation, Overview, Protection, Security)': 'Independent/Internal'
       }
     };
 
     function getAllProjectsWithMeta() {
-      const semesterOrder = ['fall', 'spring', 'fall2025'];
+      const semesterOrder = ['fall', 'spring', 'fall2025', 'spring2026'];
       return semesterOrder.flatMap(semesterKey => {
         const semesterProjects = getSemesterProjects(semesterKey);
         return semesterProjects.map(project => ({
@@ -281,7 +334,8 @@
       return [
         ...getCursProjectsForSemester('fall'),
         ...getCursProjectsForSemester('spring'),
-        ...getCursProjectsForSemester('fall2025')
+        ...getCursProjectsForSemester('fall2025'),
+        ...getCursProjectsForSemester('spring2026')
       ];
     }
 
@@ -360,7 +414,8 @@
       const industryGroups = [
         ...(industryProjectsBySemester.fall || []),
         ...(industryProjectsBySemester.spring || []),
-        ...(industryProjectsBySemester.fall2025 || [])
+        ...(industryProjectsBySemester.fall2025 || []),
+        ...(industryProjectsBySemester.spring2026 || [])
       ];
 
       if (!industryGroups.length) {
@@ -482,6 +537,13 @@
     fall2025Btn.addEventListener('click', () => {
       activeSemester = 'fall2025';
       setActiveSemesterButton(fall2025Btn);
+      renderFundingView();
+    });
+
+    // NEW LISTENER ADDED / Anjali:
+    spring2026Btn.addEventListener('click', () => {
+      activeSemester = 'spring2026';
+      setActiveSemesterButton(spring2026Btn);
       renderFundingView();
     });
 
