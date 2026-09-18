@@ -145,3 +145,109 @@
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
+
+/* Added by Anjali - Faculty contact details */
+.contact-info .faculty-name {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #4F2C1D;
+}
+
+.contact-info .faculty-role {
+  margin-top: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #B93A00;
+}
+
+.contact-info .faculty-dept {
+  margin-top: 0.15rem;
+  font-size: 1.05rem;
+  color: #6B5F59;
+}
+
+.contact-info .faculty-list {
+  margin: 1.75rem 0 0;
+  padding: 0;
+  border-top: 1px solid #E8E1DC;
+}
+
+.contact-info .faculty-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #E8E1DC;
+}
+
+.contact-info .faculty-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-info .faculty-icon {
+  flex: 0 0 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  background: #FFF0E8;
+  color: #B93A00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info .faculty-icon svg {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.contact-info .faculty-list dt {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #6B5F59;
+}
+
+.contact-info .faculty-list dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #2B2522;
+}
+
+.contact-info .faculty-list address {
+  font-style: normal;
+}
+
+.contact-info .faculty-list a {
+  font-size: inherit;
+  line-height: inherit;
+  color: #2B2522;
+  text-decoration: underline;
+  text-decoration-color: #FE5000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.contact-info .faculty-list a:hover {
+  color: #B93A00;
+}
+
+.contact-info .faculty-list a:focus-visible {
+  outline: 3px solid #FE5000;
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .contact-info .faculty-name { font-size: 1.6rem; }
+  .contact-info .faculty-list dd { overflow-wrap: anywhere; }
+}
